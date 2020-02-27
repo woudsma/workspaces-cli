@@ -17,6 +17,9 @@ npm i -g @woudsma/workspaces-cli
 ### Usage
 _`ws` is aliased to `workspaces`_  
 
+Create a workspace by opening a project in VS Code, optionally add more projects to your current workspace. Save the workspace with:  
+File -> Save Workspace As...
+
 I've made a `_workspaces` folder in my personal projects folder, where I keep workspaces that include multiple projects. Other workspaces are usually stored in their own project folder. `ws` searches 1 level deep.  
 Example:
 ```
@@ -28,6 +31,7 @@ Workspaces root directory: /Users/woudsma/Projects
   _workspaces/mount-spaces
   workspaces-cli/workspaces-cli
 ```
+For example, the workspace for this project is saved at `/Users/woudsma/Projects/workspaces-cli/workspaces-cli.code-workspace`.
 
 #### First time configuration
 `ws` reads your workspaces root directory from `~/.workspacesrc`.  
