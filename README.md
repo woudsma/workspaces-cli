@@ -36,7 +36,7 @@ Workspaces root directory: /Users/woudsma/Projects
   _workspaces/mount-spaces
   workspaces-cli/workspaces-cli
 ```
-For example, the workspace for this project is saved at `/Users/woudsma/Projects/workspaces-cli/workspaces-cli.code-workspace`.  
+The workspace for this project is saved at `/Users/woudsma/Projects/workspaces-cli/workspaces-cli.code-workspace` for example.  
 
 `ws` is an alias of `workspaces`.  
 
@@ -52,7 +52,8 @@ Creating /Users/woudsma/.workspacesrc
 ## Configuration  
 Multiple root directories can be specified by adding them to `WORKSPACES_ROOT_DIR` in `~/.workspacesrc`, seperated by comma.  
 Example:
-```
+```sh
+# in ~/.workspacesrc
 WORKSPACES_ROOT_DIR=/Users/woudsma/Projects,/Users/woudsma/Company/clients
 ```
 
