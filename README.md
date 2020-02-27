@@ -3,7 +3,7 @@
 
 A small command-line tool to easily list all your different VS Code Workspaces.  
 
-`ws` searches for all `.code-workspace` files in a root directory.  
+`ws` searches for all `.code-workspace` files in a user-specified root directory.  
 By default, `ws` searches only 1 level deep to prevent traversing folders like `node-modules`, `vendor`, etc.
 
 ![workspaces-cli-demo](assets/workspace-cli-demo.gif)
@@ -19,8 +19,6 @@ Make sure you have installed the `code` command in your `$PATH`.
 **[How to](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)**
 
 ### Usage
-_`ws` is aliased to `workspaces`_  
-
 Create a workspace by opening a project in VS Code, optionally add more projects to your current workspace.  
 Save the workspace with:  
 ```
@@ -38,7 +36,9 @@ Workspaces root directory: /Users/woudsma/Projects
   _workspaces/mount-spaces
   workspaces-cli/workspaces-cli
 ```
-For example, the workspace for this project is saved at `/Users/woudsma/Projects/workspaces-cli/workspaces-cli.code-workspace`.
+For example, the workspace for this project is saved at `/Users/woudsma/Projects/workspaces-cli/workspaces-cli.code-workspace`.  
+
+`ws` is aliased to `workspaces`.  
 
 ### First time configuration
 `ws` reads your workspaces root directory from `~/.workspacesrc`.  
@@ -48,6 +48,12 @@ $ ws
 No configuration found in /Users/woudsma/.workspacesrc
 Creating /Users/woudsma/.workspacesrc
 ? Enter workspaces root directory, e.g. ~/Projects › ~/
+```
+
+Multiple root directories can be specified by adding them to `WORKSPACES_ROOT_DIR` in `~/.workspacesrc`, seperated by comma.  
+Example:
+```
+WORKSPACES_ROOT_DIR=/Users/woudsma/Projects,/Users/woudsma/Company/clients
 ```
 
 The default search depth can be changed by adding `READDIR_DEPTH=<depth>` to `~/.workspacesrc`.
