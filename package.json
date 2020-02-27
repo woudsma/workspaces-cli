@@ -1,6 +1,6 @@
 {
   "name": "@woudsma/workspaces-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A small command-line tool to easily list all your different VS Code Workspaces",
   "main": "bin/workspaces-cli.js",
   "preferGlobal": true,
