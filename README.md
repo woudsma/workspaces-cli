@@ -14,11 +14,18 @@ By default, `ws` searches only 1 level deep to prevent traversing folders like `
 npm i -g @woudsma/workspaces-cli
 ```
 
+### Requirements
+Make sure you have installed the `code` command in your `$PATH`.  
+**[How to](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)**
+
 ### Usage
 _`ws` is aliased to `workspaces`_  
 
-Create a workspace by opening a project in VS Code, optionally add more projects to your current workspace. Save the workspace with:  
+Create a workspace by opening a project in VS Code, optionally add more projects to your current workspace.  
+Save the workspace with:  
+```
 File -> Save Workspace As...
+```
 
 I've made a `_workspaces` folder in my personal projects folder, where I keep workspaces that include multiple projects. Other workspaces are usually stored in their own project folder. `ws` searches 1 level deep.  
 Example:
