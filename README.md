@@ -1,0 +1,46 @@
+# Workspaces CLI  
+![Publish to npm](https://github.com/woudsma/workspaces-cli/workflows/Publish%20to%20npm/badge.svg?branch=master)  
+
+A small command-line tool to easily list all your different VS Code Workspaces.  
+
+`ws` searches for all `.code-workspace` files in a root directory.  
+By default, `ws` searches only 1 level deep to prevent traversing folders like `node-modules`, `vendor`, etc.
+
+![workspaces-cli-demo](assets/workspace-cli-demo.gif)
+
+---
+### Installation
+```sh
+npm i -g @woudsma/workspaces-cli
+```
+
+### Usage
+_`ws` is aliased to `workspaces`_  
+
+I've made a `_workspaces` folder in my personal projects folder, where I keep workspaces that include multiple projects. Other workspaces are usually stored in their own project folder. `ws` searches 1 level deep.  
+Example:
+```
+$ ws
+Workspaces root directory: /Users/woudsma/Projects
+? Select workspace …
+❯ _workspaces/hasura-test
+  _workspaces/kirby-react-test
+  _workspaces/mount-spaces
+  workspaces-cli/workspaces-cli
+```
+
+#### First time configuration
+`ws` reads your workspaces root directory from `~/.workspacesrc`.  
+If no configuration can be found, `ws` will try to create a `~/.workspacesrc` file with the workspaces root directory that you've provided.  
+```
+$ ws
+No configuration found in /Users/woudsma/.workspacesrc
+Creating /Users/woudsma/.workspacesrc
+? Enter workspaces root directory, e.g. ~/Projects › ~/
+```
+
+The default search depth can be changed by adding `READDIR_DEPTH=<depth>` to `~/.workspacesrc`.
+```sh
+# Recommended READDIR_DEPTH=1 (default)
+echo READDIR_DEPTH=2 >> ~/.workspacesrc
+```

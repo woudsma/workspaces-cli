@@ -1,0 +1,33 @@
+{
+  "name": "@woudsma/workspaces-cli",
+  "version": "1.0.0",
+  "description": "A small command-line tool to easily list all your different VS Code Workspaces",
+  "main": "bin/workspaces-cli.js",
+  "preferGlobal": true,
+  "bin": {
+    "workspaces": "bin/workspaces-cli.js",
+    "ws": "bin/workspaces-cli.js"
+  },
+  "dependencies": {
+    "@jsdevtools/readdir-enhanced": "^6.0.0",
+    "enquirer": "^2.3.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/woudsma/workspaces-cli.git"
+  },
+  "keywords": [
+    "vs",
+    "code",
+    "workspaces",
+    "cli",
+    "list",
+    "select"
+  ],
+  "author": "Tjerk Woudsma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woudsma/workspaces-cli/issues"
+  },
+  "homepage": "https://github.com/woudsma/workspaces-cli#readme"
+}
