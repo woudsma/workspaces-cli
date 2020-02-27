@@ -33,7 +33,7 @@ Workspaces root directory: /Users/woudsma/Projects
 ```
 For example, the workspace for this project is saved at `/Users/woudsma/Projects/workspaces-cli/workspaces-cli.code-workspace`.
 
-#### First time configuration
+### First time configuration
 `ws` reads your workspaces root directory from `~/.workspacesrc`.  
 If no configuration can be found, `ws` will try to create a `~/.workspacesrc` file with the workspaces root directory that you've provided.  
 ```
