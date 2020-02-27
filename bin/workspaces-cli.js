@@ -68,7 +68,7 @@ const main = async () => {
       .sync(dir, { deep: parseFloat(READDIR_DEPTH) })
       .filter(filepath => filepath.includes(ext))
       .map(workspacePath => ({
-        workspace: `${workspacePath.replace(ext, '')}`,
+        workspace: `[${dir.split('/').pop()}] ${workspacePath.replace(ext, '')}`,
         path: `${dir}/${workspacePath}`,
       }))))
 
