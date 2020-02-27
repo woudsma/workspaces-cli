@@ -41,16 +41,26 @@ const main = async () => {
 
   console.log('Workspaces root directory:', WORKSPACES_ROOT_DIR)
 
-  const prompt = new Select({
-    message: 'Select workspace',
-    choices: readdir
-      .sync(WORKSPACES_ROOT_DIR, { deep: READDIR_DEPTH })
+  const choices = [].concat(...WORKSPACES_ROOT_DIR
+    .split(',')
+    .filter(Boolean)
+    .map(dir => readdir
+      .sync(dir, { deep: parseFloat(READDIR_DEPTH) })
       .filter(filepath => filepath.includes(ext))
-      .map(workspacePath => workspacePath.replace(ext, '')),
+      .map(workspacePath => ({
+        workspace: `${workspacePath.replace(ext, '')}`,
+        path: `${dir}/${workspacePath}`,
+      }))))
+
+  const selectPrompt = new Select({
+    message: 'Select workspace',
+    choices: choices.map(({ workspace }) => workspace)
   })
 
-  prompt.run()
-    .then(workspace => execSync(`code ${WORKSPACES_ROOT_DIR}/${workspace}${ext}`))
+  selectPrompt.run()
+    .then(choice => choices
+      .find(({ workspace, path }) => choice === workspace
+        && execSync(`code ${path}`)))
     .catch(console.error)
 }
 
