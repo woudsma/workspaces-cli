@@ -16,7 +16,7 @@ npm i -g @woudsma/workspaces-cli
 
 ## Requirements  
 - Node.js version >= 8
-- Make sure you have installed the `code` command in your `$PATH` - **[(How to)](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)**
+- Make sure you have installed the `code` command in your `$PATH` - [How to](https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line)
 
 ## Usage  
 Create a workspace by opening a project in VS Code, optionally add more projects to your current workspace.  
