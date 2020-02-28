@@ -86,13 +86,14 @@ const main = async () => {
   selectPrompt.run()
     .then(choice => choices
       .find(({ workspace, path, cwd }) => choice === workspace
+        && execSync(`code ${path}`)
+        && JSON.parse(USE_SUBSHELL)
         && (console.log('Entering workspace directory in a subshell'), true)
         && (console.log(cwd), true)
         && (console.log(`Enter 'exit' to exit subshell`), true)
-        && execSync(`code ${path}`)
-        && JSON.parse(USE_SUBSHELL)
         && spawnSync(process.env.SHELL, ['-i'], {
           cwd,
+          env: process.env,
           stdio: 'inherit',
         })))
     .catch(console.error)
