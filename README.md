@@ -35,6 +35,8 @@ Workspaces root directory: /Users/woudsma/Projects
   _workspaces/kirby-react-test
   _workspaces/mount-spaces
   workspaces-cli/workspaces-cli
+
+$ ws [-h|--help]
 ```
 The workspace for this project is saved at `/Users/woudsma/Projects/workspaces-cli/workspaces-cli.code-workspace` for example.  
 
@@ -57,8 +59,13 @@ Example:
 WORKSPACES_ROOT_DIR=/Users/woudsma/Projects,/Users/woudsma/Company/clients
 ```
 
+Turn off the subshell when selecting a workspace.
+```sh
+# USE_SUBSHELL=true (default)
+echo USE_SUBSHELL=false >> ~/.workspacesrc
+```
 The default search depth can be changed by adding `READDIR_DEPTH=<depth>` to `~/.workspacesrc`.
 ```sh
-# Recommended READDIR_DEPTH=1 (default)
+# READDIR_DEPTH=1 (default)
 echo READDIR_DEPTH=2 >> ~/.workspacesrc
 ```
