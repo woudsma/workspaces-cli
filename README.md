@@ -26,6 +26,7 @@ File -> Save Workspace As...
 ```
 
 I've made a `_workspaces` folder in my personal projects folder, where I keep workspaces that include multiple projects. Other workspaces are usually stored in their own project folder. `ws` searches 1 level deep.  
+More info on [Multi-root workspaces](https://github.com/microsoft/vscode-docs/blob/master/docs/editor/multi-root-workspaces.md).  
 Example:
 ```
 $ ws
