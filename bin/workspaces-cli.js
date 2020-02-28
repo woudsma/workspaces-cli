@@ -6,11 +6,12 @@ const { execSync } = require('child_process')
 const { Input, Select } = require('enquirer')
 const readdir = require('@jsdevtools/readdir-enhanced')
 
+const FLAG_HELP = process.argv.includes("-h") || process.argv.includes("--help")
 const rcfile = `${os.homedir()}/.workspacesrc`
 const ext = '.code-workspace'
 
 const main = async () => {
-  if (process.argv.includes("-h") || process.argv.includes("--help")) {
+  if (FLAG_HELP) {
     console.log(`
     Usage:
       $ ws [-h|--help]
@@ -18,36 +19,36 @@ const main = async () => {
     Configuration
       Multiple root directories can be specified by adding them to WORKSPACES_ROOT_DIR in ~/.workspacesrc, seperated by comma.
       Example:
-      # in ~/.workspacesrc
+      # In ~/.workspacesrc
       WORKSPACES_ROOT_DIR=/Users/woudsma/Projects,/Users/woudsma/Company/clients
 
       The default search depth can be changed by adding READDIR_DEPTH=<depth> to ~/.workspacesrc.
       Example:
       # Recommended READDIR_DEPTH=1 (default)
       echo READDIR_DEPTH=2 >> ~/.workspacesrc
-    `);
+    `)
     process.exit(0)
   }
 
   const config = await new Promise((resolve, reject) => {
     if (existsSync(rcfile)) {
-      resolve(readFileSync(rcfile).toString());
+      resolve(readFileSync(rcfile).toString())
     } else {
-      console.log(`No configuration found in ${rcfile}\nCreating ${rcfile}`);
+      console.log(`No configuration found in ${rcfile}\nCreating ${rcfile}`)
 
       const inputPrompt = new Input({
         message: `Enter workspaces root directory, e.g. ~/Projects`,
         default: "~/"
-      });
+      })
 
       inputPrompt
         .run()
         .then(input => {
-          const workspacesRootDir = input.replace("~/", `${os.homedir()}/`);
-          appendFileSync(rcfile, `WORKSPACES_ROOT_DIR=${workspacesRootDir}`);
-          resolve(readFileSync(rcfile).toString());
+          const workspacesRootDir = input.replace("~/", `${os.homedir()}/`)
+          appendFileSync(rcfile, `WORKSPACES_ROOT_DIR=${workspacesRootDir}`)
+          resolve(readFileSync(rcfile).toString())
         })
-        .catch(err => reject(err));
+        .catch(err => reject(err))
     }
   })
 
@@ -74,7 +75,7 @@ const main = async () => {
 
   const selectPrompt = new Select({
     message: 'Select workspace',
-    choices: choices.map(({ workspace }) => workspace)
+    choices: choices.map(({ workspace }) => workspace),
   })
 
   selectPrompt.run()
